@@ -1,0 +1,33 @@
+server: #server相关
+  port: 80
+
+logging: #日志信息
+  level:
+    root: warn
+    top.leju.homefurnishing: debug
+
+spring:
+  datasource: #数据库连接池配置，不配置连接池下有默认连接池
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.8.111:5432/db_home_furnishing
+    username: root
+    password: root
+
+mybatis: #mybatis配置
+  type-aliases-package: top.leju.homefurnishing.pojo
+  configuration:
+    #开启驼峰命名匹配映射
+    map-underscore-to-camel-case: true
+
+thread-pool-config: #线程池配置
+  corePoolSize: 2 #核心线程数
+  maximumPoolSize: 4 #最大线程数
+  keepAliveTime: 60 #线程空闲时间，单位秒
+  capacity: 1 #队列容量
+
+socket-config: #socket相关配置信息
+  port: 8888 #监听端口
+  timeOut: 60000 #监听超时时间，不要写表达式，这是配置文件
+
+test: #测试配置里的参数
+  test: 仅供测试
